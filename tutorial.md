@@ -21,12 +21,12 @@ To build our Plant Buddy we'll be using [Electron](https://www.electronjs.org/do
 
 For this tutorial, we'll be following a simple design I put together in [Figma](https://www.figma.com/community/file/1650050617386672796/plant-buddy), so you'll be styling the app to match it exactly. Feel free to use it as your guide, or tweak the colors, layout, and sprites to make your own version once you're done!
 
-With that said, let's get our project set up! ദ്ദി ˉ͈̀꒳ˉ͈́ )✧
+With that said, let's get our project set up! ✨
 
 ## Getting Started
 First, we’ll set up Electron, then create our project files, and lastly make sure the app actually runs before we start building anything.
 
-To follow along, all you need is a code editor of your choice and [Node.js](https://nodejs.org/en) to load and manage dependencies. For this tutorial, I’ll be using [VS Code](https://code.visualstudio.com/) as my editor.
+To follow along, all you need is a code editor of your choice and [Node.js](https://nodejs.org/en) to load and manage dependencies.
 
 ### Installing Electron
 Start by creating a new project folder named `plant-buddy` and initialize it in your terminal:
@@ -35,9 +35,9 @@ Start by creating a new project folder named `plant-buddy` and initialize it in 
 npm init -y
 ```
 
-This will automatically generate a `package.json` file. Think of it as your project's ID card because it keeps track of your app's name, versions, and dependencies.
+This automatically generate a `package.json` file. Think of it as your project's ID card because it keeps track of your app's name, versions, and dependencies.
 
-Now let's install the two packages we need:
+Now let's install the two packages we need 📦:
 
 ```bash
 npm install --save-dev electron
@@ -50,7 +50,7 @@ We'll only have to restart the app whenever we add something to the `main.js`, s
 Also, you may have noticed a `node_modules/` folder and a `package-lock.json` file were automatically generated too. These store Electron and all its dependencies. They update on their own as your project grows, so just leave them be!
 
 ### Creating Your Project Files
-Now let's create the project files we'll be working with. You can do this by right-clicking inside the VS Code file explorer on the left and selecting **New File**:
+Now let's create the project files we'll be working with 📁:
 
 - `main.js` to control the app window and talk to your operating system.
 - `index.html` to render the application.
@@ -84,7 +84,7 @@ Also replace the default `"test"` script with `"start": "electron ."` because th
 }
 ```
 
-Your `package.json` should now look like this:
+This is how they should look:
 
 ```json
 {
@@ -94,6 +94,8 @@ Your `package.json` should now look like this:
   }
 }
 ```
+
+Don't worry about the rest of the fields, you can leave them as they are. They won't interfere with running your program. Only these two are most important.
 
 ### Setting Up main.js
 `main.js` is the first thing Electron runs when you launch your app. Open it and paste this in:
@@ -122,7 +124,7 @@ function createWindow() {
 app.whenReady().then(createWindow);
 ```
 
-The `BrowserWindow` is how Electron creates a window on your desktop. Inside it we define how that window looks and behaves. These are called attributes, and here are the most relevant ones: `width` and `height` to set a fixed window size, and `alwaysOnTop: true` so your plant buddy stays visible on your desktop. The last line tells Electron to wait until the app is ready before creating the window and loading `index.html` into it.
+The `BrowserWindow` is how Electron creates a window on your desktop. Inside it we define how that window looks and behaves. These are called attributes, and here are the most relevant ones: `width` and `height` to set a fixed window size, and `alwaysOnTop` so your plant buddy stays visible on your desktop. The last line tells Electron to wait until the app is ready before creating the window and loading `index.html` into it.
 
 Then add this line at the very top of your `main.js`:
 
@@ -132,7 +134,7 @@ require('electron-reload')(__dirname) // electron-reload
 
 From now on every time you save a change, your app will refresh automatically.
 
-Now with everything set up, try running `npm start` in your terminal. If a small blank window pops up on your screen, you're good to go. Let’s start building! (ﾉ´ヮ`)ﾉ*: ･ﾟ
+Now with everything set up, try running `npm start` in your terminal. If a small blank window pops up on your screen, you're good to go. Let’s start building! 🛠️
 
 <div align="center">
   <img alt="Blank window" src="tutorial-images/Blank-window.png" width="600">
@@ -141,9 +143,9 @@ Now with everything set up, try running `npm start` in your terminal. If a small
 ## Building Plant Buddy
 Before we continue, head over to the [plant-buddy](https://github.com/sh3rqxs/plant-buddy) repository and get the `assets/` folder. It contains the icons we'll use for the title bar and the plant sprites for each mood.
 
-You can get it by **cloning the repo** or **downloading it as a ZIP**, then grab the folder and drop it into your `plant-buddy` project folder.
+Also, the folder includes three different plants to choose from, so feel free to pick your favorite! Just make sure the `src` path matches the folder name of the plant you choose. For this tutorial I'll be going with the **leafy stem plant**. 🌱
 
-The `assets/` folder includes three different plants to choose from, so feel free to pick your favorite! Just make sure the `src` path matches the folder name of the plant you choose. For this tutorial I'll be going with the **leafy stem plant**.
+You can get all the files by **cloning the repo** or **downloading it as a ZIP**, then grab the `assets/` folder and drop it into your `plant-buddy` project folder.
 
 ### HTML
 First, open `index.html` and paste this in:
@@ -180,7 +182,7 @@ Just below the `<title>` tag, add the font link from [Google Fonts](https://font
 
 We're using **Pixelify Sans** for that fun retro pixel feel. The `preconnect` links help the browser load it faster by connecting to Google Fonts early. Right below it we link `style.css` so our styles are applied to the app.
 
-Then at the very bottom of the `<body>`, add your script:
+Then inside the `<body>` at the very bottom, add your script:
 
 ```html
   <!-- Script -->
@@ -320,7 +322,7 @@ After you have added all the app elements, here’s how it should look at this p
   <img alt="HTML" src="tutorial-images/HTML.gif" width="600">
 </div>
 
-I know, it looks boring. Let's style it with CSS! ✧˖°.
+I know, it looks boring. Let's style it with CSS! 🎨
 
 ### CSS
 First, close the app with `Ctrl + C` (or `Cmd + C` on Mac) in your terminal. Then open `main.js` and add these two lines between `center` and `alwaysOnTop` attributes:
@@ -332,7 +334,7 @@ First, close the app with `Ctrl + C` (or `Cmd + C` on Mac) in your terminal. The
 
 This hides the defult title bar and makes the app's background fully transparent so we can apply our own title bar and background through CSS instead of relying on the default window style.
 
-Then run `npm start` to open the app again. You'll notice the background is now fully transparent!
+Then run `npm start` to open the app again. You'll notice the background is now fully transparent! 🏁
 
 Now open `style.css` and paste this in:
 
@@ -372,9 +374,9 @@ body {
 
 The `*` reset is a common trick to strip out the browser's built-in spacing so everything starts from a clean slate, and `html` and `body` are set to fill the full window size and hide the content that overflows it. The `.app` class adds the green border, the light background color, and sets Pixelify Sans as the font for the whole app.
 
-**Note:** If your content looks a bit overflowed or misaligned right now, don't worry! We haven't styled the water meter bar yet, so things will look a bit off until we get there. Trust the process!
+⚠️**Note:** If your content looks a bit overflowed or misaligned right now, don't worry! We haven't styled the water meter bar yet, so things will look a bit off until we get there. Trust the process!
 
-Next, add the button style reset below:
+Next add the button style reset below:
 
 ```css
 /* Buttons style reset */
@@ -481,7 +483,7 @@ Now add the plant zone styles:
 The `.plant-zone` uses a grid layout to stack the sprite and mood tag vertically inside a rounded green bordered box. The `image-rendering: pixelated` on `#plant` keeps the sprite looking crisp instead of blurry when scaled up, which is important for pixel art. The mood tag is styled as a small rounded pill that sits neatly below the plant.
 
 #### Care Reminder
-Then add the care reminder styles:
+Next add the care reminder styles:
 
 ```css
 /* Care reminder */
@@ -509,7 +511,7 @@ Then add the care reminder styles:
 This styles the care reminder as a small rounded box that sits below the plant zone, matching the same green border and background color. The message text is centered and styled in green.
 
 #### Water Meter
-Next, add the water meter styles:
+Then add the water meter styles:
 
 ```css
 /* Water meter */
@@ -629,7 +631,7 @@ Here’s how the app should look once we applied all the styles:
   <img alt="CSS" src="tutorial-images/CSS.png" width="600">
 </div>
 
-Now, let's bring our plant buddy to life with JavaScript! (˶ˆᗜˆ˵)
+Now, let's bring our plant buddy to life with JavaScript! ✨
 
 ### JavaScript
 We've reached the last part of the tutorial! With JavaScript, we're going to make the app functional. We'll start with the title bar buttons, then move to the water meter mechanic that keeps your plant alive.
@@ -809,7 +811,7 @@ water_btn.addEventListener("click", () => {
 });
 ```
 
-When clicked, the first thing this checks is `water_on_cooldown`. If it's `true`, the function exits immediately with `return`, which is what stops you from spamming the button. Otherwise, it adds 25% to `water_level`, using `Math.min(100, ...)` to make sure it never goes over 100%, then calls `updateUI()` to reflect the refill.
+When clicked, the first thing this checks is `water_on_cooldown`. If it's `true`, the function exits immediately with `return`, which is what stops you from spamming the button. Otherwise, it adds 25% to `water_level`, using `Math.min(100, ...)` to make sure it never goes over 100%, then calls `updateUI()` to reflect the refill. 💧
 
 After that, it starts the cooldown. The button gets disabled and faded out with a lower opacity so it's visually clear it's not usable yet. `remaining` is set in seconds and displayed in the button's timer text. Then a second `setInterval` ticks down `remaining` once per second, updating the timer text each time, until it hits 0. At that point the cooldown clears, the button becomes clickable again, and the timer resets back to "READY".
 
@@ -828,7 +830,7 @@ restart_btn.addEventListener("click", () => {
 });
 ```
 
-This resets everything back to its starting state. `water_level` goes back to 100, the cooldown flag and button are reset so the water button is immediately usable again, and `clearInterval(cooldown_timer)` makes sure any leftover cooldown timer from before doesn't keep running in the background. Finally, `updateUI()` refreshes the screen so your plant shows up thriving again.
+This resets everything back to its starting state. `water_level` goes back to 100, the cooldown flag and button are reset so the water button is immediately usable again, and `clearInterval(cooldown_timer)` makes sure any leftover cooldown timer from before doesn't keep running in the background. Finally, `updateUI()` refreshes the screen so your plant shows up thriving again. 🔁
 
 Last but not least, add this line at the very bottom of `script.js`:
 
@@ -840,18 +842,18 @@ This runs `updateUI()` once immediately when the app starts, so everything is in
 
 And that's it, Plant Buddy is officially alive! Watch your plant react as the water level changes.
 
+Here's the final walkthrough! 🎥
+
 https://github.com/user-attachments/assets/c9fb2f30-22ed-49f9-bfdb-7d18d93fcb4a
 
-Here's the final walkthrough! (≧◡≦) ♡
-
 ### Conclusion
-Congratulation! You just built a fully functional Plant Buddy App with Electron! 🌱
+Congratulation! 🎉 You just built a fully functional Plant Buddy App with Electron!
 
 Along the way you learned how to set up an Electron project from scratch, build a custom window, style a desktop app with CSS, and bring it to life with JavaScript through a simple but satisfying game loop. You also got hands on experience with Electron's IPC system to connect your interface with the main process and a solid foundation for building any other desktop app you can think of next!
 
 This is just the starting point though. If you'd like to take this further, you could package your Plant Buddy into a real installable app using a tool like [Electron Forge](https://www.electronforge.io/), so it runs as a standalone program instead of through `npm start`.
 
-Also challenge yourself to add more advanced features to your application. Here are a few ideas to expand on it ✨:
+Also, challenge yourself to add more advanced features to your application. Here are a few ideas to expand on it:
 
 * A sunlight mechanic that gives your plant certain boosts
 * Notifications that pop up when your plant needs water, even if the app is minimized
@@ -859,7 +861,7 @@ Also challenge yourself to add more advanced features to your application. Here 
 * A save system using local storage so your plant's progress persists even after closing the app
 
 #### More Resources
-Here are some extra resources, along with the project's source code and Figma file, in case you want to dig deeper or explore the full design. (๑˃ᴗ˂)ﻭ
+🔗 Here are some extra resources, along with the project's source code and Figma file, in case you want to dig deeper or explore the full design.
 
 * [Project Source Code](https://github.com/sh3rqxs/plant-buddy)
 * [Plant Buddy Design File](https://www.figma.com/community/file/1650050617386672796)
